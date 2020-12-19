@@ -1,25 +1,7 @@
-// Create Object
+function sayHello(name, age){
 
-const cwjinfo = {
-    name: "cwj",
-    age:33,
-    gender:"Male",
-    isHandsome:true,
-    favMovies: ["Aling the gods",'LOTR',"SweetHome"],
-    favFood: 
-    [
-        {name:"Kimchi", fatty:false},
-        {name:"Cheese burger", fatty:true}
-    ]
-}
+    console.log("hello!",name,"you have",age,"years of age.");
+};
 
-console.log(cwjinfo.gender);
 
-// Object can be changed
-cwjinfo.gender = "Female"
-
-console.log(cwjinfo.gender);
-
-console.log(cwjinfo);
-
-console.log(cwjinfo.favFood[10].name);
+sayHello("CWJ", 15);
