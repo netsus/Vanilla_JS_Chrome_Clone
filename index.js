@@ -1,15 +1,25 @@
-Array
-Object
+// Create Object
 
+const cwjinfo = {
+    name: "cwj",
+    age:33,
+    gender:"Male",
+    isHandsome:true,
+    favMovies: ["Aling the gods",'LOTR',"SweetHome"],
+    favFood: 
+    [
+        {name:"Kimchi", fatty:false},
+        {name:"Cheese burger", fatty:true}
+    ]
+}
 
-const monday = "Mon";
-const tue = "Tue";
-const wed = "Wed";
-const thu = "Thu";
-const fri= "Fri";
-console.log(monday,tue,wed,thu,fri)
+console.log(cwjinfo.gender);
 
-// Array
-const daysOfWeek = ["Mon","Tue","Wed","The",'Fri',true,false];
-console.log(daysOfWeek);
-console.log(daysOfWeek[2]);
+// Object can be changed
+cwjinfo.gender = "Female"
+
+console.log(cwjinfo.gender);
+
+console.log(cwjinfo);
+
+console.log(cwjinfo.favFood[10].name);
