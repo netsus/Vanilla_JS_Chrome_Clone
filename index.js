@@ -1,25 +1,15 @@
-/*
-Using Variable
-Create
-Initialize
-Use
-*/
-// Mulitiline Comments
+Array
+Object
 
 
-// String
-const what = "Niclolas";
-console.log(what);
+const monday = "Mon";
+const tue = "Tue";
+const wed = "Wed";
+const thu = "Thu";
+const fri= "Fri";
+console.log(monday,tue,wed,thu,fri)
 
-// Boolean
-const what2 = false;
-const wat2 = true;
-console.log(what2,wat2);
-
-//Number
-const what3 = 110;
-console.log(what3);
-
-//Float
-const wat4 = 55.1;
-console.log(wat4);
+// Array
+const daysOfWeek = ["Mon","Tue","Wed","The",'Fri',true,false];
+console.log(daysOfWeek);
+console.log(daysOfWeek[2]);
