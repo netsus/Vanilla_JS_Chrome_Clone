@@ -1,19 +1,14 @@
-function sayHello(name, age){
+// 브라우저에서 제공하는 함수 존재
+// -> HTML을 다루는게 목적
 
-    return `Hello ${name} you are ${age} years old.`;
-};
+const title = document.getElementById("title");
+
+// index.html 페이지의 개발자도구의 Console에 아래 내용이 출력된다.
+console.log(title);
+
+console.error("Fuck");
 
 
-const greetCwj = sayHello("CWJ", 15);
+//DOM
 
-console.log(greetCwj);
-
-
-const calculator = {
-    plus: function(num1,num2){
-        return num1 + num2;
-    }
-}
-
-const result = calculator.plus(5,5);
-console.log(result); 
+title.innerHTML = "Hi! From JS";
