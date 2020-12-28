@@ -1,18 +1,18 @@
-// 브라우저에서 제공하는 함수 존재
-// -> HTML을 다루는게 목적
-
-const title = document.querySelector("#title");
-
-function handleResiae(event){
-    console.log(event);
-    // console.log("I have been resized");
+if(10 === '10'){
+    console.log('hi');
+} else {
+    console.log('ho');
 }
 
-window.addEventListener("resize", handleResiae);
+console.log(true && true);
+console.log(true || false);
 
+const age = prompt("How old are you?")
 
-function handleClick(){
-    title.style.color = 'yellow';
+if(age >= 18 && age <= 21){
+    console.log('you can drink but you should not');
+} else if(age > 21){
+    console.log("go ahead");
+} else {
+    console.log("Too young28");
 }
-
-title.addEventListener("click",handleClick);
