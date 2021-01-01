@@ -1,25 +1,27 @@
 body {
-  background-color: green;
+  background-color: rgb(115, 222, 255);
 }
-
-.btn {
-  cursor: pointer;
-}
-
 h1 {
   color: #34495e;
   transition: color 0.5s ease-in-out;
 }
-
+.btn {
+  cursor: pointer;
+}
 .clicked {
   color: #7f8c8d;
 }
-
+.js-title {
+  font-size: 100px;
+}
 .form,
 .greetings {
-  display: None;
+  display: none;
 }
-
 .showing {
   display: block;
+}
+input {
+  margin-left: 40px;
+  background-color: #ebffa2;
 }
