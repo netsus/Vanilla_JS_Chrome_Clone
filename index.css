@@ -1,15 +1,19 @@
 body {
-  background-color: rgb(115, 222, 255);
+  background-color: #1e1e1e;
 }
+
 h1 {
-  color: #34495e;
+  color: white;
   transition: color 0.5s ease-in-out;
+}
+h3 {
+  color: white;
 }
 .btn {
   cursor: pointer;
 }
 .clicked {
-  color: #7f8c8d;
+  color: white;
 }
 .js-title {
   font-size: 100px;
@@ -24,4 +28,23 @@ h1 {
 input {
   margin-left: 40px;
   background-color: #ebffa2;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.bgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  animation: fadeIn 0.5s linear;
 }

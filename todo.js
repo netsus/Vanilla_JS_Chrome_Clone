@@ -5,8 +5,6 @@ toDoList = document.querySelector('.js-toDoList');
 const TODOS_LS = 'TODO';
 let toDos = [];
 
-
-
 function deleteToDo(event){
     const btn = event.target;
     const li = btn.parentNode;
@@ -18,8 +16,7 @@ function deleteToDo(event){
     saveToDos();
 }
 
-
-function saveToDos(){
+function saveToDos() {
     localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
 }
 
