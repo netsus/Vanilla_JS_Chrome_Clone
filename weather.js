@@ -1,8 +1,8 @@
+// weather api를 이용해서 현재 위치와 온도 가져오기
 const weather = document.querySelector(".js-weather");
 
 const API_KEY = "5fd2370e380366fcdab429fe4c4fa8cc"
 const COORDS = 'coords';
-
 
 function getWeather(lat,lon){
     fetch(
@@ -44,7 +44,7 @@ function askForCoords(){
 
 function loadCoords(){
     const loadedCoords = localStorage.getItem(COORDS);
-    if (loadedCoords ===null){
+    if (loadedCoords === null){
         askForCoords();
     } else{
         const parsedCoords = JSON.parse(loadedCoords);

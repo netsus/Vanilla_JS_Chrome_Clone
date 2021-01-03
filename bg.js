@@ -2,6 +2,7 @@ const body = document.querySelector("body");
 
 const IMG_NUMBER = 6;
 
+// 랜덤 넘버(6)에 따라 배경 이미지 랜덤으로 골라주는 역할
 
 function paintImage(imgNumber){
     const image = new Image();
