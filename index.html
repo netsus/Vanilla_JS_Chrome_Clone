@@ -3,11 +3,17 @@
     <head>
         <title>Hello</title>
         <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <span class="js-weather"></span>
-        <h1 id="title" class="btn">This works!</h1>
-        <h3>
+        <div class='js-weather'>
+            <span class="js-weather__value"></span>
+        </div>
+        <div class="js-clock">
+            <h1 class="js-title">00:00</h1>
+        </div>
+        <h1 id="title" class="btn">JavaScript Basic</h1>
+        <!-- <h3>
             <ul>
                 <li>1. 생성/ 2. 초기화/ 3. 사용</li>
                 <li>let : 변수 선언, 초기화</li>
@@ -27,20 +33,21 @@
                 <li>classList : class의 리스트, add/remove가능.</li>
                 <li>toggle(var) : var이 있나없나 확인해줌.</li>
             </ul>
-        </h3>
-        <div class="js-clock">
-            <h1 class="js-title">00:00</h1>
-        </div>
-        <form class="js-form form">
-            <input type="text" placeholder="What is your name?">
-        </form>
-        <h4 class="js-greetings greetings"></h4>
+        </h3> -->
+        <div class="input-box">
+            <form class="js-form form">
+                <input type="text" class="form__input" placeholder="What is your name?">
+                <label for="name" class="form__label">What is your name?</label>
+            </form>
+            <h4 class="js-greetings greetings"></h4>
 
-        <form class="js-toDoForm">
-            <input type="text" placeholder="Write a to do.">
-        </form>
-        <ul class="js-toDoList">
-        </ul>
+            <form class="js-form js-toDoForm">
+                <input type="text" class="form__input" placeholder="Write a to do.">
+                <label for="name" class="form__label">What is your name?</label>
+            </form>
+            <ul class="js-toDoList">
+            </ul>
+        </div>
         
 
         <script src="clock.js"></script>

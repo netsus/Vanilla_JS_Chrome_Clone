@@ -1,3 +1,4 @@
+// 시간 진행 표시
 const clockContainer = document.querySelector(".js-clock"),
  clockTitle = clockContainer.querySelector("h1");
 

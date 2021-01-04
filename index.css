@@ -1,12 +1,30 @@
 body {
-  background-color: #1e1e1e;
+  width: 100%;
+  height: 100%;
+}
+.js-weather {
+  position: relative;
 }
 
-h1 {
+.js-weather__value {
+  color: white;
+  position: absolute;
+  right: 0px;
+}
+
+.js-clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.js-clock > .js-title {
   color: white;
   transition: color 0.5s ease-in-out;
 }
-h3 {
+#title {
+  text-align: center;
+}
+h1 {
   color: white;
 }
 .btn {
@@ -17,6 +35,44 @@ h3 {
 }
 .js-title {
   font-size: 100px;
+}
+.input-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 입력받는 곳 CSS */
+.form__label {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  display: block;
+  transition: all 0.3s;
+  transform: translateY(0rem);
+}
+
+.form__input {
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  font-size: 1.2rem;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 0.2rem;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  width: 90%;
+  display: block;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+}
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-4rem);
+  transform: translateY(-4rem);
 }
 .form,
 .greetings {
