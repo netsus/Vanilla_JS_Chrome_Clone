@@ -1,29 +1,43 @@
-const form = document.querySelector('select_country'),
-country = document.querySelector(country),
-CO_LS = 'Country';
+const form = document.querySelector('.js-form');
+const country = form.querySelector('#country');
 
+const CO_LS = 'Country';
 
-function saveCo(text){
-    localStorage.setItem(CO_LS,currentValue);
+// local storage에 값 추가
+function saveName(text){
+    localStorage.setItem(CO_LS, text);
 }
 
-function handleSubmit(){
+// 사용자 id 입력받으면 출력 및 저장(localStorage)
+function handleSubmit(event){
+    event.preventDefault();
     const currentValue = country.value;
-    saveCo(currentValue);  
+    paintCountry(currentValue);
+    saveName(currentValue);
 }
 
-function askForCo(){
-    form.addEventListener('submit', handleSubmit);
+
+function paintCountry(text){
+    console.log(text);
+    country.value = text;
 }
 
-function loadCo(){
-    const currentCo = localStorage.getItem(CO_LS);
-    if (currentCo ===null){
-        askForCo();
+function listenChange(){
+    form.addEventListener('change', handleSubmit)
+}
+
+function loadName(){
+    const currentCountry = localStorage.getItem(CO_LS);
+    if(currentCountry === null){
+        listenChange();
+    }else{
+        paintCountry(currentCountry);
     }
+    listenChange();
 }
 
 function init(){
-    loadCo();
+    loadName()
 }
+
 init();
