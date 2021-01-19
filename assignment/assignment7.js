@@ -47,7 +47,7 @@ function finToDo(event, li, finBtn,text,newId,delBtn){
     const pli = btn.parentNode;
     pending.removeChild(pli);
     const pendBtn = document.createElement('button');
-    pendBtn.innerHTML = '<<';
+    pendBtn.innerHTML = '🔙';
     li.removeChild(finBtn);
     li.appendChild(pendBtn);
     finished.appendChild(li); // ul에 li 추가
@@ -72,7 +72,7 @@ function pendToDo(event, li,pendBtn,text,newId,delBtn){
     const pli = btn.parentNode;
     finished.removeChild(pli);
     const finBtn = document.createElement('button');
-    finBtn.innerHTML = 'V';
+    finBtn.innerHTML = '✔️';
     li.removeChild(pendBtn);
     li.appendChild(finBtn);
     pending.appendChild(li); // ul에 li 추가
@@ -100,8 +100,8 @@ function pendingToDo(text){
     const finBtn = document.createElement('button');
     const span = document.createElement('span');
     const newId = parseInt(Math.random()*10000000000);
-    delBtn.innerHTML = 'X';
-    finBtn.innerHTML = 'V';
+    delBtn.innerHTML = '❌';
+    finBtn.innerHTML = '✔️';
     span.innerText = text;
     li.appendChild(span);
     li.appendChild(delBtn);
@@ -125,8 +125,8 @@ function finishToDo(text){
     const pendBtn = document.createElement('button');
     const span = document.createElement('span');
     const newId = parseInt(Math.random()*10000000000);
-    delBtn.innerHTML = 'X';
-    pendBtn.innerHTML = '<<';
+    delBtn.innerHTML = '❌';
+    pendBtn.innerHTML = '🔙';
     span.innerText = text;
     li.appendChild(span);
     li.appendChild(delBtn);

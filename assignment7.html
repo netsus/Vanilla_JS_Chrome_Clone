@@ -4,14 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Arvo);
+        body {
+            margin:0px;
+            z-index: 5;
+            width:100vw;
+            height:100vh;
+            font-family:'Arvo';
+            display: flex;
+            flex-direction: column;
+            justify-content:start;
+            align-items: start;
+            color: white;
+        }
+        .wrap{
+            margin: 60px;
+        }
+        h1 {
+            margin: 0;
+            /* margin-top: 200px; */
+            font-size:50px;
+            font-weight: 500;
+        }
+
+    input{
+        display:block;
+        width: 300px;
+        padding: 15px 0 15px 12px;
+        margin: 30px 0px;
+        font-family: "Arvo";
+        font-weight: 400;
+        color: white;
+        background: rgba(0,0,0,0.7);
+        border: none;
+        outline: none;
+        color: #fff;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+        border: 1px solid rgba(0,0,0,0.3);
+        border-radius: 15px;
+        box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 0px 1px rgba(255,255,255,0.9);
+        text-indent: 40px;
+        transition: all .3s ease-in-out;
+        position: relative;
+        font-size: 17px;
+    }
+    input:focus{
+        text-indent: 12px;
+        box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0px 0px 1px rgba(255,255,255,0.9);
+    }
+    .List {
+        /* width: 500px; */
+        display: flex;
+        justify-content: space-between;
+        /* flex-direction: column; */
+        padding-left: 0px;
+    }
+    .List_item{
+        width: 400px;
+    }
+    ul {
+        font-size: 23px;
+        padding-left: 5px;
+    }
+    img {
+        position: absolute;
+        z-index: -1;
+        width: 100vw;
+        height: 100vh;
+    }
+    button {
+        margin: 3px 0px 0px 6px;
+    }
+    ::placeholder {
+        font-size: 15px;
+        color:rgba(255,255,255,0.7)
+    }
+    li > span {
+        font-size: 19px;
+        font-weight: 300;
+    }
+    li{
+        margin: 7px 0px;
+    }
+
+
+
+    </style>
 </head>
 <body>
-    <h1>Tasks</h1>
-    <form action="" class="to_do_form">
-        <input type="text" placeholder="Add task" class="task">
-    </form>
-    <ul class="pending" style="font-weight: 600;">Pending</ul>
-    <ul class="finished" style="font-weight: 600;">Finished</ul>
+    <img src="https://i.pinimg.com/originals/8b/35/fe/8b35fef55fba1a201c9c7a11d3ec3d64.gif" alt="">
+    <div class="wrap">
+        <h1>Awesome Tasks</h1>
+        <form action="" class="to_do_form">
+        <input type="text" id="name" placeholder="Add task" class="task" >
+        </form>
+        <div class="List">
+            <div class="List_item">
+                <ul class="pending">Pending</ul>
+            </div>
+            <div class="List_item">
+                <ul class="finished">Finished</ul>
+            </div>
+            <!-- <ul class="pending">Pending</ul>
+            <ul class="finished">Finished</ul> -->
+        </div>
+    </div>
+    
     <script src="assignment/assignment7.js"></script>
 </body>
 </html>
