@@ -10,44 +10,42 @@ let taskLi = [];
 let finLi = [];
 
 // 삭제 이벤트 발생시 li삭제
-function deleteToDo(event,ul,list,LS){
-    console.log(ul);
+function deleteToDo(event){
     const btn = event.target;
     const li = btn.parentNode;
-    ul.removeChild(li); // ul에서 li 삭제
+    try {
+        pending.removeChild(li);
+        console.log(pending);
+    } catch {
+        try{
+            finished.removeChild(li);
+            console.log(finished);} catch{
+                //pass
+            }
+    } // ul에서 li 삭제
     // cleanToDos에는 삭제대상 id와 다른 id를 갖는 li 저장.
-    const cleanToDos = list.filter(function(toDo){ 
+    const taskcleanToDos = taskLi.filter(function(toDo){ 
         return toDo.id !== parseInt(li.id);
     });
-    list = cleanToDos;
-    saveToDos(LS,list);
+    taskLi = taskcleanToDos;
+    const fincleanToDos = finLi.filter(function(toDo){ 
+        return toDo.id !== parseInt(li.id);
+    });
+    finLi = fincleanToDos;
+    saveToDos();
 }
 
-
-function pendToDo(li,pendBtn,text,newId,delBtn){
-    const finBtn = document.createElement('button');
-    finBtn.innerHTML = 'V';
-    li.removeChild(pendBtn);
-    li.appendChild(finBtn);
-    pending.appendChild(li); // ul에 li 추가
-    const toDoObj = {
-        text: text,
-        id: newId
-    };
-    delBtn.addEventListener("click", function(event){
-        deleteToDo(event, pending, taskLi, PEND_LS);}, false); // 삭제이벤트 발생하면 삭제
-    finBtn.addEventListener("click", function(){
-        finToDo(li,finBtn,text,newId,delBtn);}, false);   // fin이벤트 발생하면 fin으로 이동
-    taskLi.push(toDoObj);
-    saveToDos(PEND_LS,taskLi);
-}
 
 // LocalStorage에 추가 (toDos 리스트 필요)
-function saveToDos(LS,list) {
-    localStorage.setItem(LS, JSON.stringify(list));
+function saveToDos() {
+    localStorage.setItem(PEND_LS, JSON.stringify(taskLi));
+    localStorage.setItem(FIN_LS, JSON.stringify(finLi));
 }
 
-function finToDo(li,finBtn,text,newId,delBtn){
+function finToDo(event, li, finBtn,text,newId,delBtn){
+    const btn = event.target;
+    const pli = btn.parentNode;
+    pending.removeChild(pli);
     const pendBtn = document.createElement('button');
     pendBtn.innerHTML = '<<';
     li.removeChild(finBtn);
@@ -58,11 +56,40 @@ function finToDo(li,finBtn,text,newId,delBtn){
         id: newId
     };
     delBtn.addEventListener("click", function(event){
-        deleteToDo(event,finished,finLi,FIN_LS);}, false); // 삭제이벤트 발생하면 삭제
-    pendBtn.addEventListener("click", function(){
-        pendToDo(li,pendBtn,text,newId,delBtn);}, false); // fin이벤트 발생하면 fin으로 이동
+        deleteToDo(event);}, false); // 삭제이벤트 발생하면 삭제
+    pendBtn.addEventListener("click", function(event){
+        pendToDo(event, li, pendBtn,text,newId,delBtn);}, false); // fin이벤트 발생하면 fin으로 이동
     finLi.push(toDoObj);
-    saveToDos(FIN_LS,finLi);
+    const taskcleanToDos = taskLi.filter(function(toDo){ 
+        return toDo.id !== parseInt(li.id);
+    });
+    taskLi = taskcleanToDos;
+    saveToDos();
+}
+
+function pendToDo(event, li,pendBtn,text,newId,delBtn){
+    const btn = event.target;
+    const pli = btn.parentNode;
+    finished.removeChild(pli);
+    const finBtn = document.createElement('button');
+    finBtn.innerHTML = 'V';
+    li.removeChild(pendBtn);
+    li.appendChild(finBtn);
+    pending.appendChild(li); // ul에 li 추가
+    const toDoObj = {
+        text: text,
+        id: newId
+    };
+    delBtn.addEventListener("click", function(event){
+        deleteToDo(event);}, false); // 삭제이벤트 발생하면 삭제
+    finBtn.addEventListener("click", function(event){
+        finToDo(event, li, finBtn, text, newId, delBtn);}, false);   // fin이벤트 발생하면 fin으로 이동
+    taskLi.push(toDoObj);
+    const fincleanToDos = finLi.filter(function(toDo){ 
+        return toDo.id !== parseInt(li.id);
+    });
+    finLi = fincleanToDos;
+    saveToDos();
 }
 
 // 입력받은 값(text)을 ul 태그에 추가하고, toDos 리스트에 추가, localStorage에 추가
@@ -86,11 +113,11 @@ function pendingToDo(text){
         id: newId
     };
     delBtn.addEventListener("click", function(event){
-        deleteToDo(event, pending, taskLi, PEND_LS);}, false); // 삭제이벤트 발생하면 삭제
-    finBtn.addEventListener("click", function(){
-        finToDo(li, finBtn, text, newId, delBtn);}, false);   // fin이벤트 발생하면 fin으로 이동
+        deleteToDo(event);}, false); // 삭제이벤트 발생하면 삭제
+    finBtn.addEventListener("click", function(event){
+        finToDo(event, li, finBtn, text, newId, delBtn);}, false);   // fin이벤트 발생하면 fin으로 이동
     taskLi.push(toDoObj);
-    saveToDos(PEND_LS,taskLi);
+    saveToDos();
 }
 function finishToDo(text){
     const li = document.createElement('li');
@@ -105,17 +132,17 @@ function finishToDo(text){
     li.appendChild(delBtn);
     li.appendChild(pendBtn);
     li.id = newId;
-    pending.appendChild(li); // ul에 li 추가
+    finished.appendChild(li); // ul에 li 추가
     const toDoObj = {
         text: text,
         id: newId
     };
     delBtn.addEventListener("click", function(event){
-        deleteToDo(event, pending, finLi, FIN_LS);}, false); // 삭제이벤트 발생하면 삭제
-    finBtn.addEventListener("click", function(){
-        finToDo(li, finBtn, text, newId, delBtn);}, false);   // fin이벤트 발생하면 fin으로 이동
+        deleteToDo(event);}, false); // 삭제이벤트 발생하면 삭제
+    pendBtn.addEventListener("click", function(event){
+        pendToDo(event, li, pendBtn, text, newId, delBtn);}, false);   // fin이벤트 발생하면 fin으로 이동
     finLi.push(toDoObj);
-    saveToDos(FIN_LS,finLi);
+    saveToDos(finLi);
 }
 
 // 값 입력받으면 출력(paint)하고, 값 초기화
