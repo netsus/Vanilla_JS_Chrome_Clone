@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment8</title>
+    <style>
+        .guess__text{
+            width:260px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .guess__play-input {
+            width:50px;
+        }
+        .choose__text > div {
+            font-size: 16px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="Game">
+        <h1>Random Number Game</h1>
+        <h2>Generate a number between 0 and <span class="Game_value"></span></h2>
+        <input type="range" list="tickmarks" class="number_range" value='0' min='0' max='200'>
+        <datalist id="tickmarks">
+        <option value="0" label="0"></option>
+        <option value="20"></option>
+        <option value="40"></option>
+        <option value="60"></option>
+        <option value="80"></option>
+        <option value="100" label="100"></option>
+        <option value="120"></option>
+        <option value="140"></option>
+        <option value="160"></option>
+        <option value="180"></option>
+        <option value="200" label="200"></option>
+        </datalist>
+        <div class="guess">
+            <div class="guess__text">
+                Guess the number:
+                <form action="" class="guess__play">
+                    <input type="text" class="guess__play-input">
+                    <button>Play!</button>
+                </form>
+            </div>
+            <div class="choose__text">
+
+            </div>
+        </div>
+    </div>
+    <script src="assignment/assignment8.js"></script>
+</body>
+</html>
