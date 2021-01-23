@@ -56,13 +56,10 @@ function init() {
                 } catch  {
                     num="";
                 }
-                
             }
             console.log(exp);
         }
     });
-
-
 }
 
 init();
